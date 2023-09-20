@@ -1,7 +1,6 @@
 import pprint
 from random import randint
-import matplotlib.pyplot
-from matplotlib.pyplot import gist
+import matplotlib.pyplot as plt
 
 def aValue(arr: list[int]) -> float:
     return sum(arr) / len(arr)
@@ -17,7 +16,6 @@ def mode(arr: list[int]) -> int:
 
 def mediana(arr: list[int]) -> float:
     return (arr[9] + arr[10]) / 2
-
 
 def stndDivi(arr: list[int]) -> float:
     return disp(arr) ** 0.5
@@ -44,7 +42,12 @@ def output(arr: list[int]) -> None:
     print(f"CoffVar: {cofVar(arr)}")
     print(f"Scope: {scope(arr)}")
 
-
+def graph(arr: list[int]) -> None:
+    plt.hist(arr, bins = 5, edgecolor="r")
+    plt.show()
+    
+    plt.plot(arr, range(1, len(arr) + 1))
+    plt.show()
 
 
 if __name__ == "__main__":
@@ -55,3 +58,4 @@ if __name__ == "__main__":
     num.sort()
 
     output(num)
+    graph(num)
