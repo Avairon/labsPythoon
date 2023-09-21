@@ -29,7 +29,23 @@ def scope(arr: list[int]) -> float:
     return max(arr) - min(arr)
 
 
+def graph(arr: list[int]) -> None:
+    plt.hist(arr, bins = 9, edgecolor="r")
+    plt.show()
+    
+    x = [i for i in set(arr)]
+    y = [arr.count(i) for i in set(arr)]
+    
+    fig, ax = plt.subplots()
+    ax.plot(x, y, "green")
+
+    plt.show()
+
 def output(arr: list[int]) -> None:
+    
+    num.sort()
+    
+    graph(arr)
     
     
     
@@ -42,12 +58,7 @@ def output(arr: list[int]) -> None:
     print(f"CoffVar: {cofVar(arr)}")
     print(f"Scope: {scope(arr)}")
 
-def graph(arr: list[int]) -> None:
-    plt.hist(arr, bins = 5, edgecolor="r")
-    plt.show()
-    
-    plt.plot(arr, range(1, len(arr) + 1))
-    plt.show()
+
 
 
 if __name__ == "__main__":
@@ -55,7 +66,5 @@ if __name__ == "__main__":
     for i in range(20):
         num.append(randint(1, 9))
 
-    num.sort()
-
     output(num)
-    graph(num)
+    
